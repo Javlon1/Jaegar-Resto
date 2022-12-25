@@ -42,7 +42,7 @@ export default function Main() {
         </div>
         <ul className="main__container__card">
           {
-            data?.filter((e)=> e.type === fil).map((e,i)=>(
+            data?.filter((j)=> j.type === fil).map((e,i)=>(
               <li onClick={()=> 
               {
                 setOrder([...new Set([...order, e])]);
