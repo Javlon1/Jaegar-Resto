@@ -3,8 +3,7 @@ import { Context } from '../../Context/Context'
 import './Orders.scss'
 
 export default function Orders() {
-  const [order] = useState(Context)
-  console.log(order);
+  const {order} = useState(Context)
   return (
     <section className='orders'>
       <div className="orders__container">
