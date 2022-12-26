@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Context } from '../../Context/Context'
 import { data } from '../../Data/data'
 import './Main.scss'
@@ -11,7 +11,7 @@ export default function Main() {
     }
   })
   const [fil, setFil] = useState(arrFilter[0])
-  const[order, setOrder] = useState(Context)
+  const {order, setOrder} = useContext(Context)
   return (
     <section className='main'>
       <div className="main__container">

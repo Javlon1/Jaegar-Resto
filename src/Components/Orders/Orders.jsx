@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { Context } from '../../Context/Context'
 import './Orders.scss'
 
 export default function Orders() {
-  const {order} = useState(Context)
+  const {order} = useContext(Context)
   return (
     <section className='orders'>
       <div className="orders__container">
@@ -41,7 +41,7 @@ export default function Orders() {
                     </samp>
                   </div>
                   <p className='orders__container__list2__item__top__right__have'>{e.number}</p>
-                  <b className='orders__container__list2__item__top__right__price'>$ 4,58</b>
+                  <b className='orders__container__list2__item__top__right__price'>$ {e.number * e.price}</b>
                 </div>
                 <div className="orders__container__list2__item__bottom">
                   <input type="text" placeholder='Please, just a little bit spicy only.'/>

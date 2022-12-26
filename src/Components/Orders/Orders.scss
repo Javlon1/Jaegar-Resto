@@ -1,10 +1,10 @@
 .orders{
     background: var(--black);
-    width: 25%;
+    width: 460px;
     height: 100vh;
     color: #fff;
     &__container{
-        width: 80%;
+        width: 380px;
         margin: 0 auto;
         &__title{
             margin-top: 25px;
@@ -61,6 +61,7 @@
                         &__samp{
                             margin-left: 10px;
                             &__title{
+                                width: 150px;
                                 font-weight: 500;
                                 font-size: 14px;
                                 line-height: 130%;
