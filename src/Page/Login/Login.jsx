@@ -20,10 +20,12 @@ export default function Login() {
   const navigate = useNavigate()
 
   const loginHandler=(evn)=>{
-    evn.preventDevault()
+    evn.preventDefault()
+
     const userName = evn.target.elements.name.value
     const userPassword = evn.target.elements.password.value
 
+    console.log(userName);
     for (let i = 0; i < data.length; i++) {
       if (data[i].name === userName && data[i].password === parseInt(userPassword)) {
         window.sessionStorage.setItem('token', 'rtqwqyuygdgyguyldaljkhannusgoey6sghhuqu7uu')

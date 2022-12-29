@@ -38,12 +38,14 @@
 
         &__btn {
             font-size: 1.5rem;
-            color: var(--orange);
             border: transparent;
             background: transparent;
             display: block;
             margin: 24px;
             padding: 18px;
+            a{
+                color: var(--orange);
+            }
         }
     }
 }
