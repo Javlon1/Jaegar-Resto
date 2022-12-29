@@ -42,6 +42,18 @@
     }
 }
 
+@media (max-width:1450px) {
+    .header{
+        background-color: var(--black);
+        height: 100vh;
+        &__nav{
+            &__list{
+                height: 600px;
+            }
+        }
+    }
+    
+}
 .active{
     background: var(--gray);
     position: relative;

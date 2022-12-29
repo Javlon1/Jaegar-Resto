@@ -143,3 +143,12 @@
         background: var(--orange);
     }
 }
+@media (max-width: 1450px) {
+    .main{
+        &__container{
+            &__card{
+                height: 530px;
+            }
+        }
+    }
+}

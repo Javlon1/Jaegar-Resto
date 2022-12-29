@@ -143,3 +143,13 @@
         }
     }
 }
+
+@media (max-width:1450px) {
+    .orders{
+        &__container{
+            &__list2{
+                height: 440px;
+            }
+        }
+    }
+}

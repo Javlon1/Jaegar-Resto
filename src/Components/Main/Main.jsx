@@ -23,8 +23,6 @@ export default function Main() {
   const [fil, setFil] = useState(arrFilter[0])
   const { order, setOrder } = useContext(Context)
 
-  console.log(fil)
-
   return (
     <section className='main'>
       <div className="main__container">
