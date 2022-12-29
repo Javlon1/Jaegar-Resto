@@ -1,27 +1,32 @@
 @import '../../Assets/sass/veriables.scss';
 
-.header{
+.header {
     background-color: var(--black);
     height: 100vh;
-    &__nav{
+
+    &__nav {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         margin-right: -1px;
-        &__img{
+
+        &__img {
             margin: 24px;
         }
-        &__list{
+
+        &__list {
             height: 650px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-direction: column;
-            &__item{
+
+            &__item {
                 border-radius: 12px 0px 0px 12px;
                 margin-left: 12px;
-                a{
+
+                a {
                     margin: 13px 24px 11px 12px;
                     display: block;
                     padding: 15px 18px 15px 18px;
@@ -30,7 +35,8 @@
                 }
             }
         }
-        &__btn{
+
+        &__btn {
             font-size: 1.5rem;
             color: var(--orange);
             border: transparent;
@@ -43,33 +49,38 @@
 }
 
 @media (max-width:1450px) {
-    .header{
+    .header {
         background-color: var(--black);
         height: 100vh;
-        &__nav{
-            &__list{
+
+        &__nav {
+            &__list {
                 height: 600px;
             }
         }
     }
-    
+
 }
-.active{
+
+.active {
     background: var(--gray);
     position: relative;
-    a{
+
+    a {
         box-shadow: 0px 8px 24px rgba(234, 124, 105, 0.32);
         border-radius: 8px;
         color: #fff;
         background: var(--orange);
     }
-    &::before{
+
+    &::before {
         content: url('../../Assets/Img/arrow.svg');
         position: absolute;
         top: -17px;
         right: .1px;
     }
-    &::after{
+
+    &::after {
         content: url('../../Assets/Img/arrow.svg');
         position: absolute;
         transform: rotate(-90deg);
