@@ -10,11 +10,10 @@
         flex-direction: column;
         margin-right: -1px;
         &__img{
-            height: 10%;
             margin: 24px;
         }
         &__list{
-            height: 73vh;
+            height: 650px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -32,7 +31,6 @@
             }
         }
         &__btn{
-            height: 10%;
             font-size: 1.5rem;
             color: var(--orange);
             border: transparent;

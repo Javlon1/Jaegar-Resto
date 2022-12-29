@@ -3,11 +3,20 @@ import { Context } from '../../Context/Context'
 import './Orders.scss'
 
 export default function Orders() {
-  const {order} = useContext(Context)
+  const {order, setOrder} = useContext(Context)
+
+  const delOrder = (evn) => {
+    setOrder(order.filter((e) => e.id !== evn))
+  }
+
+  const delAllOrder = (evn) => {
+    // order = []
+  }
+
   return (
     <section className='orders'>
       <div className="orders__container">
-        <h2 className='orders__container__title'>Orders <span>#34562</span></h2>
+        <h2 className='orders__container__title'>Orders #34562</h2>
         <ul className='orders__container__list'>
           <li className='orders__container__list__item'>
             <button>Dine In</button>
@@ -45,7 +54,7 @@ export default function Orders() {
                 </div>
                 <div className="orders__container__list2__item__bottom">
                   <input type="text" placeholder='Please, just a little bit spicy only.'/>
-                  <button><i className="bi bi-trash"></i></button>
+                  <button onClick={() => delOrder(e.id)}><i className="bi bi-trash"></i></button>
                 </div>
               </li>
             ))
@@ -66,7 +75,7 @@ export default function Orders() {
               </ul>
             </li>
           </ul>
-          <button className='orders__container__bottom__btn'>Continue to Payment</button>
+          <button onClick={() => delAllOrder()} className='orders__container__bottom__btn'>Continue to Payment</button>
         </div>
       </div>
     </section>
