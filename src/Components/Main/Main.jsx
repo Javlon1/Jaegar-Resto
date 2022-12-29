@@ -4,14 +4,27 @@ import { data } from '../../Data/data'
 import './Main.scss'
 
 export default function Main() {
-  const arrFilter = []
-  data.forEach((e,i)=>{
+  const arrFilter = ['all']
+  const [value, setValue] = useState([])
+  data.forEach((e, i) => {
     if (!arrFilter.includes(e.type)) {
       arrFilter.push(e.type)
     }
   })
+
+  const searchItem = (evn) => {
+    const data2 = []
+    data.map((item) => (
+      item.title.toLowerCase().includes(evn.toLowerCase()) ? data2.push(item) : data2.push()
+    ))
+    setValue(data2)
+  }
+
   const [fil, setFil] = useState(arrFilter[0])
-  const {order, setOrder} = useContext(Context)
+  const { order, setOrder } = useContext(Context)
+
+  console.log(fil)
+
   return (
     <section className='main'>
       <div className="main__container">
@@ -22,13 +35,13 @@ export default function Main() {
           </span>
           <div className='main__container__header__search'>
             <label htmlFor="search"><i className="bi bi-search"></i></label>
-            <input onKeyUp={(e)=> console.log(e.target.value)} id='search' type="text" placeholder='Search for food, coffe, etc..'/>
+            <input onChange={(e) => searchItem(e.target.value)} id='search' type="text" placeholder='Search for food, coffe, etc..' />
           </div>
         </div>
         <div className="main__container__filter">
           {
-            arrFilter?.map((e,i)=>(
-              <button onClick={()=> setFil(e)} className={fil === e?'main__container__filter__item act':'main__container__filter__item'} key={i}>{e}</button>
+            arrFilter?.map((e, i) => (
+              <button onClick={() => setFil(e)} className={fil === e ? 'main__container__filter__item act' : 'main__container__filter__item'} key={i}>{e}</button>
             ))
           }
         </div>
@@ -42,9 +55,8 @@ export default function Main() {
         </div>
         <ul className="main__container__card">
           {
-            data?.filter((j)=> j.type === fil).map((e,i)=>(
-              <li onClick={()=> 
-              {
+            value.length > 0 ? arrFilter[0] && value.map((e, i) => (
+              <li onClick={() => {
                 setOrder([...new Set([...order, e])]);
                 e.number = e.number ? e.number + 1 : 1;
               }
@@ -55,6 +67,32 @@ export default function Main() {
                 <p className='main__container__card__item__have'>{e.have} Bowls available</p>
               </li>
             ))
+              :
+              fil === arrFilter[0] ? data?.map((e, i) => (
+                <li onClick={() => {
+                  setOrder([...new Set([...order, e])]);
+                  e.number = e.number ? e.number + 1 : 1;
+                }
+                } key={i} className='main__container__card__item'>
+                  <img className='main__container__card__item__img' src={e.img} alt="" />
+                  <h2 className='main__container__card__item__title'>{e.title}</h2>
+                  <b className='main__container__card__item__price'>$ {e.price}</b>
+                  <p className='main__container__card__item__have'>{e.have} Bowls available</p>
+                </li>
+              ))
+                :
+                data?.filter((j) => j.type === fil).map((e, i) => (
+                  <li onClick={() => {
+                    setOrder([...new Set([...order, e])]);
+                    e.number = e.number ? e.number + 1 : 1;
+                  }
+                  } key={i} className='main__container__card__item'>
+                    <img className='main__container__card__item__img' src={e.img} alt="" />
+                    <h2 className='main__container__card__item__title'>{e.title}</h2>
+                    <b className='main__container__card__item__price'>$ {e.price}</b>
+                    <p className='main__container__card__item__have'>{e.have} Bowls available</p>
+                  </li>
+                ))
           }
         </ul>
       </div>
